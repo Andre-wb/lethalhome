@@ -91,8 +91,8 @@
     <hr>
     {% if current_user.is_authenticated %}
         <div id="box_for_sell_comments">
-            <form action="{{ url_for('add_comment') }}" method="post">
-                <textarea class="comments_text" name="text" cols="30" rows="5" required placeholder="Текст комментария">{{ comment.text }}</textarea><br>
+            <form action="{{ url_for('edit_comment', comment_id=comment.id) }}" method="post">
+                <textarea class="comments_text" name="text" cols="30" rows="5" required>{{ comment.text }}</textarea><br>
                 <button type="submit" class="button_to_sell">Изменить</button>
             </form>
         </div>
@@ -100,6 +100,5 @@
         <div class="description">><a class="links_in_text" href="{{ url_for('login') }}">Войдите</a> или <a class="links_in_text" href="{{ url_for('register') }}">зарегистрируйтесь,</a> чтобы написать комментарий</div>
     {% endif %}
 </footer>
-
+</div>
 </html>
-
