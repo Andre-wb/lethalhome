@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>error</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <div id="title">
+        <div id="lethal">LETHAL</div>
+        <div id="home">HOME</div>
+        {% if current_user.is_authenticated %}
+            <div id="account"><img src="/static/img/profile-icon.webp" height="40">{{ current_user.username }}</div>
+                    <div class="popup-wrapper">
+                        <span class="trigger-profile_menu">&#xFE19;</span>
+                        <div class="popup-box">
+                            <form action="{{ url_for('logout') }}" method="post">
+                                <button class="profile_menu-btn exit" type="submit"><img src="/static/img/log-out_icon.webp" height="25">Выйти из аккаунта</button>
+                            </form>
+                            <form action="{{ url_for('delete_account') }}" method="post">
+                                <button class="profile_menu-btn delete" type="submit"><img src="/static/img/delete-account_icon.webp" height="20" style="margin-right: 2px">Удалить аккаунт</button>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        {% else %}
+        {% endif %}
+    </div>
+    <hr id="hr_in_title">
+</head>
+<body id="error_body">
+    <div id="error">
+        <div id="big_error">
+            <br>
+             &nbsp_____  &nbsp &nbsp _ &nbsp&nbsp&nbsp_  &nbsp&nbsp&nbsp_ &nbsp&nbsp_&nbsp&nbsp &nbsp  _ &nbsp ____   &nbsp&nbsp_&nbsp&nbsp__  &nbsp&nbsp&nbsp&nbsp_
+            <br>
+            / &nbsp&nbsp _ &nbsp &nbsp\ &nbsp	|&nbsp&nbsp|&nbsp | &nbsp| &nbsp|&nbsp |&nbsp | &nbsp| /&nbsp | &nbsp| |__   &nbsp &nbsp|&nbsp |/&nbsp /  &nbsp&nbsp&nbsp  / &nbsp\
+            <br>
+            | &nbsp&nbsp| &nbsp| &nbsp&nbsp&nbsp|	&nbsp| &nbsp| &nbsp| &nbsp| &nbsp| &nbsp|&nbsp | &nbsp|/&nbsp&nbsp | &nbsp|  &nbsp_ &nbsp\   &nbsp&nbsp| '&nbsp /   &nbsp&nbsp&nbsp&nbsp /&nbsp_&nbsp\
+            <br>
+            |&nbsp&nbsp |_| &nbsp&nbsp&nbsp|	&nbsp| &nbsp|_|_|_|&nbsp |&nbsp |  &nbsp&nbsp/| &nbsp|&nbsp | |_| &nbsp|  &nbsp| . &nbsp\   &nbsp&nbsp&nbsp&nbsp/&nbsp|_|&nbsp\
+            <br>
+             \_____/ &nbsp	|_______| &nbsp|_/ |_| &nbsp|___/   &nbsp&nbsp|_|\_\&nbsp&nbsp/_/ &nbsp  \_\
+            <br>
+            <br>
+        </div>
+        <div id="big-error-description">
+            Что-то пошло не так...
+        </div>
+        <div id="error-description">
+            <div class="error_subtext">
+                <div id="error-subtext">Повторите попытку или вернитесь </div>
+                <a href="/main" class="links_in_text">на главную страницу</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
