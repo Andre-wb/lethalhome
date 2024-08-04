@@ -10,7 +10,7 @@ import re
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'bu&tFU&^agb*&В6Ta*&^N*76gn8&^GNci8ueifsmo9se7faм9'
+app.config['SECRET_KEY'] = ''
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///host_database_lethal.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
