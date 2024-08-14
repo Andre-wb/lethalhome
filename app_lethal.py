@@ -7,10 +7,11 @@ from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
 from datetime import datetime
 import re
+from secret_key import SecretKey
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = ''
+app.config['SECRET_KEY'] = SecretKey
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///host_database_lethal.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
