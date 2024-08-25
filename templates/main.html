@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <div id="title">
+    <script src="/static/js/lethal_script.js"></script>
+</head>    
+<body>
+    <header id="title">
         <div id="title_in_head">
             <div id="lethal">LETHAL</div>
             <div id="home">HOME</div>
@@ -30,11 +33,8 @@
         {% else %}
             <div id="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40"><a class="links_in_text" href="{{ url_for('login') }}">Войти</a></div>
         {% endif %}
-    </div>
     <hr id="hr_in_title">
-    <script src="/static/js/lethal_script.js"></script>
-</head>
-<body>
+    </header>
     <button id="open_button" class="links_button" type="button"><b><img src="/static/img/menu.webp" alt="" class="links-image_button"></b></button>
     <button id="remove_button" class="links_button" type="button"><b><img src="/static/img/x.webp" alt="" class="links-image_button"></b></button>
     <div class="links" id="links">
