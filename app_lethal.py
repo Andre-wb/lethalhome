@@ -116,25 +116,25 @@ def register():
         confirm = form.password.data
         existing_user = User.query.filter_by(username=username).first()
         if not username and not email and not password:
-            flash('Пожалуйста, введите данные от аккаунта')
+            flash('Пожалуйста, введите данные от аккаунта', 'error')
             return redirect(url_for('register'))
         if not re.search(r'\d', password) or not re.search(r'[a-zA-Z]', password) or len(password) < 8:
             flash('Пароль должен состоять из букв и цифр, и быть длиной не менее 8 символов', 'error')
             return redirect(url_for('register'))
         else:
             if confirm != password:
-                flash('Пароли должны совпадать')
-            if not username:
-                flash('Пожалуйста, введите имя пользователя')
+                flash('Пароли должны совпадать', 'error')
+            elif not username:
+                flash('Пожалуйста, введите имя пользователя', 'error')
                 return redirect(url_for('register'))
-            if not email:
-                flash('Пожалуйста, введите эл.почту')
+            elif not email:
+                flash('Пожалуйста, введите эл.почту', 'error')
                 return redirect(url_for('register'))
-            if not password or not confirm:
-                flash('Пожалуйста, введите пароль')
+            elif not password or not confirm:
+                flash('Пожалуйста, введите пароль', 'error')
                 return redirect(url_for('register'))
         if existing_user:
-            flash('Данное имя занято, выберите другое')
+            flash('Данное имя занято, выберите другое', 'error')
             return redirect(url_for('register'))
         else:
             user = User(username=username, email=email)
@@ -146,7 +146,7 @@ def register():
             except:
                 try:
                     db.session.rollback()
-                    flash('Ошибка, повторите попытку')
+                    flash('Ошибка, повторите попытку', 'error')
                 except:
                     return render_template('error_page.html')
     return render_template('register_page.html', form=form)
@@ -159,19 +159,19 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if not username and not password:
-            flash('Пожалуйста, введите данные от аккаунта')
+            flash('Пожалуйста, введите данные от аккаунта', 'error')
             return redirect(url_for('login'))
         else:
             if not username:
-                flash('Пожалуйста, введите имя пользователя')
+                flash('Пожалуйста, введите имя пользователя', 'error')
                 return redirect(url_for('login'))
             if not password:
-                flash('Пожалуйста, введите пароль')
+                flash('Пожалуйста, введите пароль', 'error')
                 return redirect(url_for('login'))
         if user and user.check_password(password):
             login_user(user)
             return redirect(url_for('index'))
-        flash('Неправильные данные от аккаунта')
+        flash('Неправильные данные от аккаунта', 'error')
     return render_template('login_page.html')
 
 
@@ -228,7 +228,7 @@ def add_comment():
 def edit_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     if comment.author != current_user:
-        flash('Вы не авторизованы как автор этого комментария')
+        flash('Вы не авторизованы как автор этого комментария', 'error')
         return redirect(url_for('index'))
     if request.method == 'POST':
         comment.text = request.form['text']
@@ -248,7 +248,7 @@ def edit_comment(comment_id):
 def delete_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     if comment.author != current_user:
-        flash('Вы не авторизованы как автор этого комментария')
+        flash('Вы не авторизованы как автор этого комментария', 'error')
         return redirect(url_for('index'))
     try:
         db.session.delete(comment)
