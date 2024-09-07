@@ -10,13 +10,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
     <title>Вход</title>
-    <div id="title">
-        <div id="lethal">LETHAL</div>
-        <div id="home">HOME</div>
-    </div>
-    <hr id="hr_in_title">
 </head>
 <body id="register_body">
+        <header id="title">
+            <div id="lethal">LETHAL</div>
+            <div id="home">HOME</div>
+        </header>
+        <hr id="hr_in_title">
         <div class="register_form">
             <div id="register_title" style="margin-left: 75px"><img src="{{ url_for('static', filename='img/log-in_icon.webp') }}" height="35" id="title-icon">Удаление аккаунта</div>
             {% with messages = get_flashed_messages(with_categories=true) %}
