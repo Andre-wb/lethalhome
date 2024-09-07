@@ -204,6 +204,9 @@ def delete_account():
                     db.session.rollback()
                 except:
                     return render_template('error_page.html')
+        else: 
+            flash('Пожалуйста, зарегистрируйтесь')
+            return redirect(url_for('register'))            
     return render_template('delete_account_page.html')
 
 
@@ -229,7 +232,7 @@ def edit_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     if comment.author != current_user:
         flash('Вы не авторизованы как автор этого комментария', 'error')
-        return redirect(url_for('index'))
+        return redirect(url_for('register'))
     if request.method == 'POST':
         comment.text = request.form['text']
         try:
