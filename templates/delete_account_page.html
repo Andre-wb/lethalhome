@@ -18,7 +18,7 @@
 </head>
 <body id="register_body">
         <div class="register_form">
-            <div id="register_title" style="margin-left: 70px"><img src="{{ url_for('static', filename='img/log-in_icon.webp') }}" height="35" id="title-icon">Удаление аккаунта</div>
+            <div id="register_title" style="margin-left: 75px"><img src="{{ url_for('static', filename='img/log-in_icon.webp') }}" height="35" id="title-icon">Удаление аккаунта</div>
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
             <div id="flash_messages">
@@ -37,7 +37,11 @@
                     </div>
                 </div>
             </form>
-            <div id="ask_title" style="margin-left: 50px">Вы уверены, что хотите удалить свою учетную запись?</div>
+            <div id="ask_title" style="margin-left: 50px">
+                Вы уверены, что хотите удалить свой аккаунт?
+                <br>
+                Это действие нельзя отменить!
+            </div>
         </div>
 </body>
 </html>
