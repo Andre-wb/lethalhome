@@ -5,7 +5,9 @@
     <title>error</title>
     <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-    <div id="title">
+</head>
+<body id="error_body">
+    <header id="title">
         <div id="lethal">LETHAL</div>
         <div id="home">HOME</div>
         {% if current_user.is_authenticated %}
@@ -21,13 +23,10 @@
                             </form>
                         </div>
                     </div>
-            </div>
         {% else %}
         {% endif %}
-    </div>
+    </header>
     <hr id="hr_in_title">
-</head>
-<body id="error_body">
     <div id="error">
         <div id="big_error">
             <br>
