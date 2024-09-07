@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 openButton.classList.add('invisible')
                 removeButton.classList.add('visible')
                 body.classList.add('active')
-            }
+            };
         });
-    }
+    };
 
     if (removeButton) {
         removeButton.addEventListener('click', (event) => {
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 openButton.classList.remove('invisible')
                 removeButton.classList.remove('visible')
                 body.classList.remove('active')
-            }
+            };
         });
-    }
+    };
 });
 
