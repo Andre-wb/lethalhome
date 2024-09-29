@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         openButton.addEventListener('click', (event) => {
             if (links) {
                 links.classList.add('visible');
-                openButton.classList.add('invisible')
-                removeButton.classList.add('visible')
-                body.classList.add('active')
+                openButton.classList.add('invisible');
+                removeButton.classList.add('visible');
+                body.classList.add('active');
             };
         });
     };
@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         removeButton.addEventListener('click', (event) => {
             if (links) {
                 links.classList.remove('visible');
-                openButton.classList.remove('invisible')
-                removeButton.classList.remove('visible')
-                body.classList.remove('active')
+                openButton.classList.remove('invisible');
+                removeButton.classList.remove('visible');
+                body.classList.remove('active');
             };
         });
     };
