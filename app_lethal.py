@@ -205,7 +205,7 @@ def delete_account():
                 except:
                     return render_template('error_page.html')
         else: 
-            flash('Пожалуйста, зарегистрируйтесь')
+            flash('Пожалуйста, зарегистрируйтесь', 'error')
             return redirect(url_for('register'))            
     return render_template('delete_account_page.html')
 
