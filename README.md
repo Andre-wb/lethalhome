@@ -19,7 +19,7 @@ The project is built using **Python Flask**, **JavaScript**, and **SQLite3**.
 ## Technologies
 
 The project is built using the following technologies:
-- **Python Flask** — backend framework
+- **Python Flask, Flask-SQLALchemy, Flask-login** — backend framework
 - **SQLite3** — database
 - **JavaScript** — dynamic user interactions
 - **HTML/CSS** — page structure and styling
