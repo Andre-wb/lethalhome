@@ -264,5 +264,6 @@ def delete_comment(comment_id):
             return render_template('error_page.html')
 
 #для запуска сайта на локальном хосте:
+#to run on localhost:
 if __name__ == '__main__':
     app.run(debug=True)
