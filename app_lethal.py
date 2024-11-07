@@ -7,11 +7,11 @@ from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
 from datetime import datetime
 import re
-from secret_key import SecretKey
+from sectet_key import Secret_key
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = SecretKey
+app.config['SECRET_KEY'] = Secret_key
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///host_database_lethal.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -42,10 +42,19 @@ class Comment(db.Model):
 
 
 class RegistrationForm(Form):
-    username = StringField('Username', [validators.Length(min=4, max=25)])
-    email = StringField('Email Address', [validators.Length(min=6, max=35), validators.Email()])
-    password = PasswordField('Password', [validators.DataRequired(), validators.EqualTo('confirm', message='Пароли должны совпадать!')])
+    username = StringField('Username', [
+        validators.Length(min=4, max=25, message='Имя пользователя должно быть от 4 до 25 символов')
+    ])
+    email = StringField('Email Address', [
+        validators.Length(min=6, max=35),
+        validators.Email()
+    ])
+    password = PasswordField('Password', [
+        validators.DataRequired(),
+        validators.EqualTo('confirm', message='Пароли должны совпадать!')
+    ])
     confirm = PasswordField('Repeat Password')
+
 
 
 @login_manager.user_loader
@@ -116,23 +125,22 @@ def register():
         confirm = form.password.data
         existing_user = User.query.filter_by(username=username).first()
         if not username and not email and not password:
-            flash('Пожалуйста, введите данные от аккаунта', 'error')
+            flash('Пожалуйста, введите данные от аккаунта')
             return redirect(url_for('register'))
         if not re.search(r'\d', password) or not re.search(r'[a-zA-Z]', password) or len(password) < 8:
             flash('Пароль должен состоять из букв и цифр, и быть длиной не менее 8 символов', 'error')
             return redirect(url_for('register'))
-        else:
-            if confirm != password:
-                flash('Пароли должны совпадать', 'error')
-            elif not username:
-                flash('Пожалуйста, введите имя пользователя', 'error')
-                return redirect(url_for('register'))
-            elif not email:
-                flash('Пожалуйста, введите эл.почту', 'error')
-                return redirect(url_for('register'))
-            elif not password or not confirm:
-                flash('Пожалуйста, введите пароль', 'error')
-                return redirect(url_for('register'))
+        if confirm != password:
+            flash('Пароли должны совпадать', 'error')
+        if not username:
+            flash('Пожалуйста, введите имя пользователя', 'error')
+            return redirect(url_for('register'))
+        if not email:
+            flash('Пожалуйста, введите эл.почту', 'error')
+            return redirect(url_for('register'))
+        if not password or not confirm:
+            flash('Пожалуйста, введите пароль', 'error')
+            return redirect(url_for('register'))
         if existing_user:
             flash('Данное имя занято, выберите другое', 'error')
             return redirect(url_for('register'))
@@ -159,19 +167,19 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if not username and not password:
-            flash('Пожалуйста, введите данные от аккаунта', 'error')
+            flash('Пожалуйста, введите данные от аккаунта')
             return redirect(url_for('login'))
         else:
             if not username:
-                flash('Пожалуйста, введите имя пользователя', 'error')
+                flash('Пожалуйста, введите имя пользователя')
                 return redirect(url_for('login'))
             if not password:
-                flash('Пожалуйста, введите пароль', 'error')
+                flash('Пожалуйста, введите пароль')
                 return redirect(url_for('login'))
         if user and user.check_password(password):
             login_user(user)
             return redirect(url_for('index'))
-        flash('Неправильные данные от аккаунта', 'error')
+        flash('Неправильные данные от аккаунта')
     return render_template('login_page.html')
 
 
@@ -204,9 +212,9 @@ def delete_account():
                     db.session.rollback()
                 except:
                     return render_template('error_page.html')
-        else: 
-            flash('Пожалуйста, зарегистрируйтесь', 'error')
-            return redirect(url_for('register'))            
+        else:
+            flash('Пожалуйста, зарегистрируйтесь')
+            return redirect(url_for('register'))
     return render_template('delete_account_page.html')
 
 
@@ -231,7 +239,7 @@ def add_comment():
 def edit_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     if comment.author != current_user:
-        flash('Вы не авторизованы как автор этого комментария', 'error')
+        flash('Вы не авторизованы как автор этого комментария')
         return redirect(url_for('register'))
     if request.method == 'POST':
         comment.text = request.form['text']
@@ -251,7 +259,7 @@ def edit_comment(comment_id):
 def delete_comment(comment_id):
     comment = Comment.query.get_or_404(comment_id)
     if comment.author != current_user:
-        flash('Вы не авторизованы как автор этого комментария', 'error')
+        flash('Вы не авторизованы как автор этого комментария')
         return redirect(url_for('index'))
     try:
         db.session.delete(comment)
@@ -263,7 +271,6 @@ def delete_comment(comment_id):
         except:
             return render_template('error_page.html')
 
-#для запуска сайта на локальном хосте:
-#to run on localhost:
+#для запуска на локальном хосте/to tun on local host:
 if __name__ == '__main__':
     app.run(debug=True)
