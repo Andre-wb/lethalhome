@@ -7,7 +7,8 @@ from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
 from datetime import datetime
 import re
-from sectet_key import Secret_key
+#файл secret_key.py с ключем от сервера/file secret_key.py with key for server:
+from sectet_key import Secret_key 
 
 
 app = Flask(__name__)
