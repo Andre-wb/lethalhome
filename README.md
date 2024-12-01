@@ -12,7 +12,7 @@ The project is built using **Python Flask**, **JavaScript**, and **SQLite3**.
 
 ## Key Features
 
-- **User Registration and Authentication**: Users can create accounts and log in.
+- **User Registration and Authentication**: Users can create/delete accounts and log in/out.
 - **Comment Management**: Ability to post, edit, and delete comments.
 - **Minimalist Design**: The design style reflects the aesthetics of the game.
 
