@@ -2,7 +2,7 @@
 
 ## About the Project
 
-This website is an informational resource dedicated to the game **Lethal Company**. It contains multiple pages and sections that thoroughly cover all aspects of the game. The minimalist design of the site was created to align with the aesthetic of the game.
+This website is an open source informational resource dedicated to the game **Lethal Company**. It contains multiple pages and sections that thoroughly cover all aspects of the game. The minimalist design of the site was created to align with the aesthetic of the game.
 
 Users can:
 - Register and log into their accounts
