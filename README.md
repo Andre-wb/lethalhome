@@ -1,4 +1,4 @@
-# Lethal Company Informational Website
+# Lethal Home 
 
 ## About the Project
 
