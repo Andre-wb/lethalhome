@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
+    <title>Регистрация</title>
+    <link rel="icon" href="/static/img/lethalhome-icon.webp">
+    <div id="title">
+        <div id="lethal">LETHAL</div>
+        <div id="home">HOME</div>
+    </div>
+    <hr id="hr_in_title">
+</head>
+<body id="register_body">
+        <div class="register_form">
+            <div id="register_title"><img src="/static/img/log-in_icon.webp" height="35" id="title-icon">Регистрация</div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div id="flash_messages">
+                        {% for message in messages %}
+                            <div id="flash_message"><img src="/static/img/description.webp" id="flash_message-icon"><div class="message">{{ message }}</div></div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form method="POST" action="{{ url_for('register') }}">
+                <div id="forms">
+                    <div class="inputs"><input type="text" id="username" name="username" class="input_form" placeholder="Имя" required autocomplete="off"><img src="{{ url_for('static', filename='img/user-icon.webp') }}" width="30" class="user-icon_register"></div>
+                    <div class="inputs"><input type="text" id="email" name="email" class="input_form" placeholder="Эл.почта" autocomplete="off"><img src="{{ url_for('static', filename='img/email-icon.webp') }}" width="30" class="email-icon_register"></div>
+                    <div class="inputs"><input type="password" id="password" name="password" class="input_form" placeholder="Пароль" autocomplete="off"><img src="{{ url_for('static', filename='img/lock-icon.webp') }}" width="30" class="lock-icon_register"></div>
+                    <div class="inputs"><input type="password" id="confirm" name="confirm" class="input_form" placeholder="Повтор пароля" autocomplete="off"><img src="{{ url_for('static', filename='img/lock-icon.webp') }}" width="30" class="lock-icon-confirm_register"></div>
+                    <div class="button_register">
+                        <input type="submit" value="Создать аккаунт" class="btn-submit">
+                    </div>
+                </div>
+            </form>
+            <div id="ask_title">Уже есть аккаунт? <a class="links_in_text" href="{{ url_for('login') }}">Войдите</a></div>
+        </div>
+</body>
+</html>
