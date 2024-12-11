@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LethalHome</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="title">
+        <div id="lethal">LETHAL</div>
+        <div id="home">HOME</div>
+        {% if current_user.is_authenticated %}
+            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40">{{ current_user.username }}</div>
+            <div class="popup-wrapper">
+                <span class="trigger-profile_menu">&#xFE19;</span>
+                <div class="popup-box">
+                    <form action="{{ url_for('logout') }}" method="post">
+                        <button class="profile_menu-btn exit" type="submit"><img src="{{ url_for('static', filename='img/log-out_icon.webp') }}" height="25">Выйти из аккаунта</button>
+                    </form>
+                    <form action="{{ url_for('delete_account') }}" method="post">
+                        <button class="profile_menu-btn delete" type="submit"><img src="{{ url_for('static', filename='img/delete-account_icon.webp') }}" height="20" style="margin-right: 2px">Удалить аккаунт</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40"><a class="links_in_text" href="{{ url_for('login') }}">Войти</a></div>
+        {% endif %}
+    </div>
+    <hr id="hr_in_title">
+    <script src="/static/js/lethal_script.js"></script>
+
+    <button id="menu">
+        <span class="menu_lines" id="top_line"></span>
+        <span class="menu_lines" id="center_line"></span>
+        <span class="menu_lines" id="bottom_line"></span>
+    </button>
+    <div class="links" id="links">
+        <a class="mini_part" href="/main">>ОСНОВНОЕ</a><br>
+        <a class="mini_part" href="/main/weather">>ПОГОДА</a><br>
+        <a class="mini_part" href="/main/planets">>ПЛАНЕТЫ</a><br>
+        <a class="mini_part" href="/main/mobs">>СУЩНОСТИ</a><br>
+        <a class="mini_part" href="/main/terminal">>ТЕРМИНАЛ</a><br>
+        <a class="mini_part" href="/main/store">>МАГАЗИН</a><br>
+        <a class="mini_part" href="/main/scrap">>МЕТАЛЛОЛОМ</a>
+    </div>
+
+    <div id="body">
+        <div id="main_body">
+            <div class="body_text">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+<footer id="footer">
+    <div id="comments_place">Комментарии</div>
+    <hr>
+    {% if current_user.is_authenticated %}
+        <div id="box_for_sell_comments">
+            <form action="{{ url_for('add_comment') }}" method="post">
+                <textarea class="comments_text" name="text" cols="30" rows="5" required placeholder="Текст комментария"></textarea><br>
+                <button type="submit" class="button_to_sell">Отправить</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="description">><a class="links_in_text" href="{{ url_for('login') }}">Войдите</a> или <a class="links_in_text" href="{{ url_for('register') }}">зарегистрируйтесь,</a> чтобы написать комментарий</div>
+    {% endif %}
+    <div id="written_comments">
+        {% if comments|length > 0 %}
+            {% for comment in comments %}
+                <div class="comment">
+                    <div class="popup" id="popup1">
+                        {% if current_user.is_authenticated and comment.author.id == current_user.id %}
+                            <div id="comments-menu">
+                                <a href="#written_comments" class="popup-btn"><div id="comment-action-button">&#xFE19;</div></a>
+                                <div class="popup-content" id="#">
+                                    <div class="btn-comments"><a class="btn-action" href="{{ url_for('edit_comment', comment_id=comment.id) }}"><img src="{{ url_for('static', filename='img/edit-icon.webp') }}"><div class="comment_action_text">Изменить</div></a></div>
+                                    <div><form id="delete" class="btn-comments" action="{{ url_for('delete_comment', comment_id=comment.id) }}" method="post"><button type="submit" class="btn-action"><img src="{{ url_for('static', filename='img/delete_icon.webp') }}"><div class="comment_action_text">Удалить</div></button></form></div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="comment_written_name">{{ comment.author.username }}</div>
+                    <div class="comment_written_data"> {{ comment.date.strftime('%Y.%m.%d') }}</div>
+                    <div class="comment_written_text">{{ comment.text }}</div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="footer_subtitle">Комментариев пока нет</div>
+        {% endif %}
+    </div>
+    <div id="copyrite">
+        © Copyright 2023-2024 | LethalHome
+        <br>
+        lethalhome09@gmail.com
+    </div>
+</footer>
+</html>

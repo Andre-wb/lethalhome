@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LethalHome</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="title">
+        <div id="lethal">LETHAL</div>
+        <div id="home">HOME</div>
+        {% if current_user.is_authenticated %}
+            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40">{{ current_user.username }}</div>
+            <div class="popup-wrapper">
+                <span class="trigger-profile_menu">&#xFE19;</span>
+                <div class="popup-box">
+                    <form action="{{ url_for('logout') }}" method="post">
+                        <button class="profile_menu-btn exit" type="submit"><img src="{{ url_for('static', filename='img/log-out_icon.webp') }}" height="25">Выйти из аккаунта</button>
+                    </form>
+                    <form action="{{ url_for('delete_account') }}" method="post">
+                        <button class="profile_menu-btn delete" type="submit"><img src="{{ url_for('static', filename='img/delete-account_icon.webp') }}" height="20" style="margin-right: 2px">Удалить аккаунт</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40"><a class="links_in_text" href="{{ url_for('login') }}">Войти</a></div>
+        {% endif %}
+    </div>
+    <hr id="hr_in_title">
+    <script src="/static/js/lethal_script.js"></script>
+
+    <button id="menu">
+        <span class="menu_lines" id="top_line"></span>
+        <span class="menu_lines" id="center_line"></span>
+        <span class="menu_lines" id="bottom_line"></span>
+    </button>
+    <div class="links" id="links">
+        <a class="mini_part" href="/main">>ОСНОВНОЕ</a><br>
+        <a class="mini_part" href="/main/weather">>ПОГОДА</a><br>
+        <a class="mini_part" href="/main/planets">>ПЛАНЕТЫ</a><br>
+        <a class="mini_part" href="/main/mobs">>СУЩНОСТИ</a><br>
+        <a class="mini_part" href="/main/terminal">>ТЕРМИНАЛ</a><br>
+        <a class="mini_part" href="/main/store">>МАГАЗИН</a><br>
+        <a class="mini_part" href="/main/scrap">>МЕТАЛЛОЛОМ</a>
+    </div>
+
+    <div id="body">
+        <div id="main_body">
+            <div class="body_text">
+                <div class="body_title">>LETHAL COMPANY</div>
+            <hr>
+            Lethal Company - игра, которая имеет жанр хоррор-выживание. Игроки прилетают на космолете на неизвестную планету, их задача собирать различного рода мусор и металлолом на заброшенных заводах, относить на корабль, и, собрав нужное количество мусора, игроки вместе с добычей возвращаются на корабль, и улетают на планету сбора металлолома.
+            <br>
+            <br>
+            Там игроки сдают все собранное, получают зарплату и новое задание. Определенная сумма, на которое нужно набрать мусора называют квотой. Каждый раз, когда игроки сдают квоту, появляется новая, для которой надо набрать еще больше металлолома. На заработанные деньги можно покупать различные вещи, упрощающие работу, например фонарик и рация.
+            <br>
+            <br>
+            <div id="lethal_company_gameplay_screenshot">
+                <div class="inside_lethal_company_gameplay_screenshot">
+                    <img src="{{ url_for('static', filename='img/screen1.webp') }}" class="image_in_group">
+                    <img src="{{ url_for('static', filename='img/screen2.webp') }}" class="image_in_group">
+                </div>
+                <div class="inside_lethal_company_gameplay_screenshot">
+                    <img src="{{ url_for('static', filename='img/screen3.webp') }}" class="image_in_group">
+                    <img src="{{ url_for('static', filename='img/screen4.webp') }}" class="image_in_group">
+                </div>
+            </div>
+            <div class="body_subtitle">>История</div>
+            Ни одна игра не обходится без хотя бы малейшего сюжета, и lethal company не исключение. Сюжет в том, что вы работаете в компании по контракту. Ваша работа заключается в сборе металлолома с заброшенных промышленно развитых лун, чтобы соответствовать квоте прибыли Компании. Вы можете использовать заработанные наличные деньги для путешествий на новые луны с более высокими рисками и вознаграждениями - или вы можете купить модные костюмы и украшения для своего корабля. Познакомьтесь с природой, сканируя любое найденное вами существо, чтобы добавить его в свой бестиарий. Исследуйте удивительные места на открытом воздухе и поройтесь в их заброшенных, стальных и бетонных недрах.
+            <br>
+            <br>
+            <div class="body_subtitle">>Выполняйте задания в срок</div>
+            Просто никогда не пропускайте квоту. Если вы не сдадите квоту в срок, а именно за 3 дня, и принесете недостаточное количество металлолома, то вас выбросит в открытый космос.
+            <br>
+            <br>
+            <div class="body_subtitle">>Тактика</div>
+            В такой игре как lethal company вам придется нередко придумывать выход из самых опасных ситуаций, и продумывать все наперед. Также в игре есть <a class="links_in_text" href="/main/store">магазин,</a> и с его приспособлениями вы также можете обговаривать план действий.
+            <br>
+            <br>
+            Часто игроки оставляют одного из членов команды на корабле, который связывается со всеми через рацию и наблюдает за другими игроками через <a class="links_in_text" href="/main/terminal#terminal_radar">радар терминала,</a> подсказывая, где по близости есть <a class="links_in_text" href="/main/scrap">металлолом</a>, и предупреждает о <a class="links_in_text" href="/main/mobs">монстрах.</a> Также в случае полной смерти команды он нажмет на рычаг автопилота.
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <div id="comments_place">Комментарии</div>
+    <hr>
+    {% if current_user.is_authenticated %}
+        <div id="box_for_sell_comments">
+            <form action="{{ url_for('edit_comment', comment_id=comment.id) }}" method="post">
+                <textarea class="comments_text" name="text" cols="30" rows="5" required>{{ comment.text }}</textarea><br>
+                <button type="submit" class="button_to_sell">Изменить</button>
+            </form>
+        </div>
+    {% else %}
+        <div class="description">><a class="links_in_text" href="{{ url_for('login') }}">Войдите</a> или <a class="links_in_text" href="{{ url_for('register') }}">зарегистрируйтесь,</a> чтобы написать комментарий</div>
+    {% endif %}
+</footer>
+</html>

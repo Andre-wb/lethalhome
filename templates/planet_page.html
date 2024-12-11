@@ -1,0 +1,187 @@
+{% extends 'main.html' %}
+
+{% block body %}
+                    <div class="body_title">>Планеты</div>
+                    <hr>
+                    Геймплей летал компани начинается с прилета на планету на космическом корабле. Как только корабль приземлился, и игроки при необходимости обсудили тактику, команда отправляется на сборку металлолома. И стоит отметить, что планета, на которую вы решите отправиться, может повлиять на ход игры.
+                    <br>
+                    <br>
+                    Планеты в Lethal Company — основные локации, где разворачивается действие игры. Каждая обладает уникальными характеристиками и ресурсами, которые могут понадобиться для прохождения миссий. Однако, чтобы добраться до них, необходимо преодолевать опасные преграды и сражаться с враждебными созданиями. На всех планетах встречаются такие системы защиты как турели и мины.
+                    <br>
+                    <br>
+                    Перед тем как лететь на планету, рекомендуем изучить всю доступную информацию о ней в терминале. Чтобы посмотреть полный список планет, напишете в консоли «moons». Затем, чтобы изучить выбранную вами планету, напишите в консоли «(название планеты) info», например «Rend info». Также в списке планет рядом с ними пишется погода на них, например  «Rend(stormy)». Если вам выбранная планета по душе, вам нужно вписать в консоль ее название, например «Rend», после чего откроется меню подтверждения, если вы напишете «confirm», вы отправитесь на эту планету, а если напишете «deny», то запуск будет отменен. Важное примечание - путешествия на планеты <a class="links_in_text" href="#rend">Rend,</a> <a class="links_in_text" href="#titan">Titan</a> и <a class="links_in_text" href="#dine">Dine</a> в отличие от всех других платные.
+                    <div class="body_subtitle">>Уровни сложности</div>
+                    У планет в lethal company есть уровни сложности S+, S, A, B, C, D. Уровень D самый легкий, где небольшое количество монстров, а S+ самый сложный, при котором будет сложно выжить.
+                    <div class="body_subtitle">>Проводник:</div>
+                        <a class="links_in_text" href="#experimentation"><li>Experimentation</li></a>
+                        <a class="links_in_text" href="#assurance"><li>Assurance</li></a>
+                        <a class="links_in_text" href="#vow"><li>Vow</li></a>
+                        <a class="links_in_text" href="#offense"><li>Offense</li></a>
+                        <a class="links_in_text" href="#march"><li>March</li></a>
+                        <a class="links_in_text" href="#rend"><li>Rend</li></a>
+                        <a class="links_in_text" href="#dine"><li>Dine</li></a>
+                        <a class="links_in_text" href="#titan"><li>Titan</li></a>
+                    <div id="experimentation">
+                        <div class="body_subtitle">>Experimentation</div>
+                        <img src="{{ url_for('static', filename='img/experimentation.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Данная планета обладает засушливым рельефом, на котором в некоторых местах располагаются кусты. Также большая часть планеты занята различными промышленными строениями. На карте присутствует один пожарный выход, который находится близко к основному входу в комплекс. Данную планету также часто называют "планетой для новичков", ввиду того, что она самая первая в списке планет в <a class="links_in_text" href="/main/terminal">терминале,</a> а также ее низкого уровня опасности. Однако это объясняется довольно малым количеством <a class="links_in_text" href="/main/scrap">металлолома.</a> В <a class="links_in_text" href="/main/complex">комплексе</a> в основном появляются <a class="links_in_text" href="/main/mobs#bunker_spiders">бункерные пауки</a> и <a class="links_in_text" href="/main/mobs#snare_flea">прячущиеся блохи,</a> у других мобов не такой большой шанс появления. На улице появляются только <a class="links_in_text" href="/main/mobs#eyeless_dog">слепые собаки.</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="assurance">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Assurance</div>
+                        <img src="{{ url_for('static', filename='img/assurance.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Планета обладает неровным горным рельефом. Довольно хорошая планета на первых этапах игры, ввиду большого количества <a class="links_in_text" href="/main/scrap">металлолома</a> для планеты со средним уровнем сложности. Обладает пожарным выходом на противоположном конце карты от основного входа. В <a class="links_in_text" href="/main/complex">комплексе</a> высший шанс появления у <a class="links_in_text" href="/main/mobs#bunker_spiders">бункерного паука,</a> <a class="links_in_text" href="/main/mobs#hoarding_bug">жука сборщика</a> и <a class="links_in_text" href="/main/mobs#snare_flea">прячущийся блохи,</a> а на улице у <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак</a> и <a class="links_in_text" href="/main/mobs#earth_leviafan">земляных левиафанов.</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="vow">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Vow</div>
+                        <img src="{{ url_for('static', filename='img/vow.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Одна из первых доступных для полёта планет. Обладает холмистым рельефом и влажным климатом. Чтобы добраться до заброшенного комплекса, вам нужно перейти реку по одному из двух мостов. Карта довольно сложная ввиду длинного пути от корабля до комплекса, усложненная ненадежным мостом, а также самых часто появляющихся монстров.
+                        <br>
+                        <br>
+                        Особенностью карты является один из этих мостов, все дело в том что хлипкий мост рассчитан на двух человек без веса, либо же одного человека с грузом, если на мост будет оказано давление выше перечисленного, то он сломается, и людям, которые были на мосту в этот момент, придется выбираться. В <a class="links_in_text" href="/main/complex">комплексе</a> чаще всего появляется <a class="links_in_text" href="/main/mobs#bracken">бракен,</a> а на улице у всех, кроме <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак</a> довольно высокий шанс появления.
+                        <br>
+                        <br>
+                    </div>
+                    <div id="offense">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Offense</div>
+                        <img src="{{ url_for('static', filename='img/offense.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Планета очень похожа на Assurance, и структурой, и строениями. Внешний вид из-за скал и строений, как выше сказано, очень напоминает Assurance из-за таких же гор, цвета почвы и строений. На планете становится опаснее, так как кроме прочих мобов, В <a class="links_in_text" href="/main/complex">комплексе</a> повышается шанс повстречать <a class="links_in_text" href="/main/mobs#bunker_spiders">бункерного паука,</a> <a class="links_in_text" href="/main/mobs#thumper">тампера</a> и <a class="links_in_text" href="/main/mobs#hygrodere">слизня.</a> На улице вы повстречаете <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак</a> и <a class="links_in_text" href="/main/mobs#earth_leviafan">земляных левиафанов.</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="march">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>March</div>
+                        <img src="{{ url_for('static', filename='img/march.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Обладающая достаточно большой площадью, а также тремя пожарными выходами на разных концах карты - планета March. На планете присутствует немалых масштабов озеро, которое необходимо обходить, так как если вы попытаетесь переплыть его, будет летальный исход. Большие масштабы карты касаются и внутренней структуры комплекса, обладающего огромным количеством развилок. На улице появляются в основном все монстры, самый низкий шанс появления у <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак.</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="adamance">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Adamance</div>
+                        <img src="{{ url_for('static', filename='img/adamance.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Планета обладает довольно неровным рельефом с множеством оврагов и горок, а также зеленой почве с деревьями. Также на карте присутствует мост, который идентичен мосту с планеты <a class="links_in_text" href="#vow">vow,</a> благодаря которому можно сократить путь до комплекса, а также на планете имеется пожарный выход, находящийся рядом с главным входом. Мост также не выдерживает большого веса, так что если вы несете кучу металлолома с комплекса до корабля, рекомендуется проходить по мосту по очереди. На карте самыми встречаемыми монстрами на улице являются <a class="links_in_text" href="/main/mobs#forest_keeper">хранители леса</a> и <a class="links_in_text" href="/main/mobs#baboon-hawk">ястребы-бабуины.</a> Также с меньшим шансом вы можете встретить <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак.</a> В комплексе вы с большим шансом встретите <a class="links_in_text" href="/main/mobs#snare_flea">прячущуюся блоху</a> и <a class="links_in_text" href="/main/mobs#thumper">тампера.</a>
+                    </div>
+                    <div id="embrion">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Embrion</div>
+                        <img src="{{ url_for('static', filename='img/embrion.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Вся планета состоит из аметиста, а также на ней достаточно высокая температура, однако она никак не может навредить игрокам. Также на планете большое количество роботов, расставленных по всей площади планеты. На карте имеется также один пожарный выход, который находится дальше от корабля, чем основной вход.
+                    </div>
+                    <div id="rend">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Rend</div>
+                        <img src="{{ url_for('static', filename='img/rend.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Первая планета с высоким уровнем сложности. Данная характеристика обусловлена большим количеством врагов внутри и снаружи. Кроме того, планета в отличие от предыдущих, является платной, и чтобы испытать себя на ней, будьте готовы отдать 550 кредитов. Для ориентирования на карте и обнаружения входа в комплекс предусмотрены большие мигающие столбы, соединенные тросами и расположенные между кораблём и комплексом, чаще всего на планете появляется особняк. Находимый лом будет иметь высокую стоимость. На улице с наступлением ночи вы встретите <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак,</a> <a class="links_in_text" href="/main/mobs#earth_leviafan">земляных левиафанов</a> и <a class="links_in_text" href="/main/mobs#forest_keeper">хранителей леса.</a> В отличии от бесплатных планет, в комплексе кроме всех прочих монстров повышается шанс встретить <a class="links_in_text" href="/main/mobs#nutcracker">щелкунчика,</a> <a class="links_in_text" href="/main/mobs#jester">шута</a> и <a class="links_in_text" href="/main/mobs#girl">девочку.</a>
+                    </div>
+                    <div id="dine">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Dine</div>
+                        <img src="{{ url_for('static', filename='img/dine.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Похожая по виду снаружи с предыдущей планетой, новая планета Dine. Стоимость посещения обойдется вам в 600 кредитов. Несмотря на схожесть с Rend, путь до комплекса длиннее, однако он также освещен фонарями. Снаружи враги не отличаются от <a class="links_in_text" href="#rend">Rend</a> или <a class="links_in_text" href="#titan">Titan</a>, а в комплексе есть отличие, так как на Dine в отличие от других платных планет нет <a class="links_in_text" href="/main/mobs#masked">мимика,</a> а также на планете самый высокий шанс появления <a class="links_in_text" href="/main/mobs#butler">дворецкого.</a>
+                        <br>
+                        <br>
+                    </div>
+                    <div id="titan">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>Titan</div>
+                        <img src="{{ url_for('static', filename='img/titan.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Самая дорогая и опасная планета в lethal company. Если хотите опробовать себя на ней, вам придется заплатить 700 кредитов. Снаружи планета представляет собой заснеженную пустошь, корабль садится очень близко к высокой лестнице, по которой можно забраться в комплекс, игроки часто сбрасывают вниз весь хлам для удобной транспортировки на корабль. К слову безглавые собаки и лесные великаны могут также взбираться по лестницам за вами. На планете самое большое количество лома. На улице вы встретите в основном <a class="links_in_text" href="/main/mobs#forest_keeper">хранителей леса</a> и <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак.</a> Однако внутри комплекса встречаются <a class="links_in_text" href="/main/mobs">все виды монстров в игре.</a>
+                    </div>
+                    <div id="artifice">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">Artifice</div>
+                        <img src="{{ url_for('static', filename='img/artifice.webp') }}" class="image">
+                        <br>
+                        <br>
+                        Самая опасная, прибыльная и дорогая планета в игре. Стоимость посещения - 1500 кредитов. На улице расставлены несколько ангаров и мелких домиков, а также на карте присутствуют деревья. Снаружи комплекса вы встретите <a class="links_in_text" href="/main/mobs#old_bird">старых птиц,</a> <a class="links_in_text" href="/main/mobs#eyeless_dog">слепых собак,</a> <a class="links_in_text" href="/main/mobs#forest_keeper">хранителей леса,</a> <a class="links_in_text" href="/main/mobs#earth_leviafan">земляных левиафанов</a> и <a class="links_in_text" href="/main/mobs#baboon_hawk">ястребов-бабуинов.</a> В комплексе у вас есть возможность встретить <a class="links_in_text" href="/main/mobs">всех монстров в игре.</a>
+                    </div>
+                    <div id="gordion">
+                        <br>
+                        <br>
+                        <div class="body_subtitle">>The company building</div>
+                        <img src="{{ url_for('static', filename='img/gordion.webp') }}" class="image">
+                        <br>
+                        <br>
+                        В игре для сбора металлолома вам дается определенный срок, именуемый квотой, а именно 3 дня. Как только дедлайн закончился, вам следует лететь на планету сбора. Чтобы это сделать, введите в терминал «moons», а затем «company». Рекомендуется сдавать хлам в последний день квоты, так как в этот день компания скупает все по максимально высокой цене.
+                    </div>
+                    <div class="body_subtitle">>Погода</div>
+                    На планетах в lethal company есть разные типы <a class="links_in_text" href="/main/weather">погоды</a>, и у каждой планеты есть типы погод, которые могут появиться, и те, которых там не может быть.
+                    <br>
+                    <br>
+                    <table id="table_about_weather_on_planets" class="table">
+                        <tr>
+                            <th>Планеты</th>
+                            <th>Возможные типы погоды</th>
+                        </tr>
+                        <tr>
+                            <td>Experimentation</td>
+                            <td><a class="links_in_text" href="/main/weather#rainy">Дождь,</a> <a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#foggy">Туман,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Assurance</td>
+                            <td><a class="links_in_text" href="/main/weather#rainy">Дождь,</a> <a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#foggy">Туман,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Vow</td>
+                            <td><a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#foggy">Туман,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Offense</td>
+                            <td><a class="links_in_text" href="/main/weather#rainy">Дождь,</a> <a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>March</td>
+                            <td><a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#foggy">Туман,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Rend</td>
+                            <td><a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dine</td>
+                            <td><a class="links_in_text" href="/main/weather#rainy">Дождь,</a> <a class="links_in_text" href="/main/weather#flooded">Затопление,</a> <a class="links_in_text" href="/main/weather#eclipsed">Затмение.</a></td>
+                        </tr>
+                        <tr>
+                            <td>Titan</td>
+                            <td><a class="links_in_text" href="/main/weather#eclipsed">Затмение,</a> <a class="links_in_text" href="/main/weather#foggy">Туман,</a> <a class="links_in_text" href="/main/weather#stormy">Шторм.</a></td>
+                        </tr>
+                    </table>
+{% endblock %}
