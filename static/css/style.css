@@ -72,6 +72,7 @@
 }
 body {
     margin: 0;
+    overflow-x: hidden;
 }
 .image_in_group {
     width: 200px;
@@ -362,35 +363,12 @@ body {
     .table_container {
         width: 500px;
     }
-
-;
 }
 @media (min-width: 1336px) {
     .table_container {
         width: 800px;
     }
-
-;
 }
-/*
-#main_scrap_table {
-    font-size: 10px;
-    font-weight: 700;
-}
-#table_about_scrap {
-    font-size: 10px;
-    font-weight: 700;
-}
-@media (min-width: 1336px){
-    #main_scrap_table {
-        font-size: 19px;
-        font-weight: 600;
-    }
-    #table_about_scrap {
-        font-size: 19px;
-        font-weight: 600;
-    }
-}*/
 th, td {
    border: 3px solid #3C3C3C;
    height: 5em;
