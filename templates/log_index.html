@@ -18,9 +18,9 @@
     <section class="introduce">
         <h3> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </h3>
         <br>
-        <h3 id="log-title">Приветствуем вас на LethalHome!!!</h3>
+        <h3>Приветствуем вас на LethalHome!!!</h3>
         <br>
-        <h6>Пожалуйста, войдите в аккаунт. Для навигации по полям используйте [TAB].</h6>
+        <h6>Если вы хотите зарегистрироваться, введите 'регистрация', а если войти, то 'вход'.</h6>
         <br>
         <h3> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </h3>
     </section>
@@ -33,18 +33,10 @@
     </div>
     {% endif %}
     {% endwith %}
-    <form id="registerForm" method="post" action="{{ url_for('login') }}">
-        <div id="forms">
-            <div class="form-group">
-                <label for="username">Введите свое имя: </label>
-                <input type="text" id="username" name="username" class="input_form" autocomplete="off" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Введите свой пароль: </label>
-                <input type="password" id="password" name="password" class="input_form hidden" autocomplete="off" required>
-            </div>
-        </div>
+    <form id="inputForm" method="post" action="{{ url_for('log_index') }}">
+        <input type="text" id="input" name="input" class="input_form" autocomplete="off" required>
     </form>
+
 </main>
 </body>
 </html>
