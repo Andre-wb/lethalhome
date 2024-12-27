@@ -3,48 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
-    <title>Удаление аккаунта</title>
-    <div id="title">
-        <div id="lethal">LETHAL</div>
-        <div id="home">HOME</div>
-    </div>
-    <hr id="hr_in_title">
-    <script>
-        window.onload = function() {
-            document.getElementById('username').value = '';
-            document.getElementById('password').value = '';
-        }
-    </script>
-
+    <title>Регистрация</title>
+    <link rel="icon" href="/static/img/lethalhome-icon.webp">
+    <script src="/static/js/lethal_script.js"></script>
 </head>
-<body>
-    <div id="register_field">
-        <div class="register_form">
-            <div id="register_title" style="margin-left: 11px"><img src="{{ url_for('static', filename='img/delete-account_icon-form.webp') }}" height="35" id="title-icon">Удаление аккаунта</div>
-            {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <div id="flash_messages">
-                {% for message in messages %}
-                <div id="flash_message" class="{{ category }}"><img src="{{ url_for('static', filename='img/description.webp') }}" height="30"><div class="message">{{ message }}</div></div>
-                {% endfor %}
-            </div>
-            {% endif %}
-            {% endwith %}
-            <form action="{{ url_for('delete_account') }}" method="post">
-                <div id="forms">
-                    <input type="text" id="username" name="username" class="input_form" placeholder="Имя" required autocomplete="off"><img src="{{ url_for('static', filename='img/user-icon.webp') }}" width="30" class="user-icon_login">
-                    <input type="password" id="password" name="password" class="input_form" placeholder="Пароль" autocomplete="off"><img src="{{ url_for('static', filename='img/lock-icon.webp') }}" width="30" class="lock-icon_login">
-                    <div class="button_login">
-                        <button type="submit" class="btn-submit_login">Удалить</button>
-                    </div>
-                </div>
-            </form>
-            <div id="ask_title" style="margin-left: 50px">Вы уверены, что хотите удалить учетную запись?</div>
-        </div>
+<body id="register_body">
+<header id="title">
+    <div id="lethal">LETHALHOME</div>
+    <hr id="hr_in_title">
+</header>
+<main id="register_main">
+    <section class="introduce">
+        <h3> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </h3>
+        <br>
+        <h3 id="log-title">Вы уверены, что хотите удалить свой аккаунт?</h3>
+        <br>
+        <h6>Это действие не может быть отменено. Для навигации по полям используйте [TAB].</h6>
+        <br>
+        <h3> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </h3>
+    </section>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div id="flash_messages">
+        {% for message in messages %}
+        <div id="flash_message"><img src="/static/img/description.webp" id="flash_message-icon"><div class="message">{{ message }}</div></div>
+        {% endfor %}
     </div>
+    {% endif %}
+    {% endwith %}
+    <form id="registerForm" method="post" action="{{ url_for('delete_account') }}">
+        <div id="forms">
+            <div class="form-group">
+                <label for="username">Введите свое имя: </label>
+                <input type="text" id="username" name="username" class="input_form" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Введите свой пароль: </label>
+                <input type="password" id="password" name="password" class="input_form hidden" autocomplete="off" required>
+            </div>
+        </div>
+    </form>
+</main>
 </body>
 </html>
-

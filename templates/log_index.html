@@ -26,9 +26,9 @@
     </section>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
-    <div id="flash_messages">
+    <div id="flash_message">
         {% for message in messages %}
-        <div id="flash_message"><img src="/static/img/description.webp" id="flash_message-icon"><div class="message">{{ message }}</div></div>
+            <div class="message">{{ message }}</div></div>
         {% endfor %}
     </div>
     {% endif %}
