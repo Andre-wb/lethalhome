@@ -712,21 +712,10 @@ a {
 
 }
 #flash_message {
-    color: red;
-    font-size: 15px;
-    z-index: 6;
-    padding: 10px;
-    height: 50px;
-    transition: 0.3s;
-    display: flex;
-    position: absolute;
-    transform: translate(-50%, 50%);
-    top: 5%;
-    left: 50%;
-    align-items: center;
-    text-align: center;
-
+    text-align: left;
+    font-size: 25px;
 }
+
 #flash_message-icon {
     height: 40px;
 }
@@ -743,19 +732,6 @@ a {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-}
-
-@media (min-width: 768px) {
-    #flash_message {
-        font-size: 22px;
-    }
-    #flash_message-icon {
-        height: 50px;
-    }
-}
-
-.message {
-    margin-left: 5px;
 }
 .description {
     color: white;
