@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -47,10 +47,18 @@ class RegistrationForm(Form):
     confirm = PasswordField('Repeat Password')
 
 
+class InputForm(Form):
+    input = StringField('Input', [validators.DataRequired()])
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+@app.route('/')
+def main():
+    comments = Comment.query.all()
+    return render_template('main_page.html', comments=comments)
 
 @app.route('/main')
 def index():
@@ -105,10 +113,25 @@ def error():
     return render_template('error_page.html')
 
 
+@app.route('/log_index', methods=['GET', 'POST'])
+def log_index():
+    if request.method == 'POST':
+        user_input = request.form.get('input', '').strip().lower()
+        if user_input == 'вход':
+            return redirect(url_for('login'))
+        elif user_input == 'регистрация':
+            return redirect(url_for('register'))
+        else:
+            flash('Неправильная команда! Введите "вход" или "регистрация".')
+            return redirect(url_for('log_index'))
+    return render_template('log_index.html')
+
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST':
         username = form.username.data
         email = form.email.data
         password = form.password.data
@@ -143,11 +166,7 @@ def register():
                 db.session.commit()
                 return redirect(url_for('login'))
             except:
-                try:
-                    db.session.rollback()
-                    flash('Ошибка, повторите попытку')
-                except:
-                    return render_template('error_page.html')
+                db.session.rollback()
     return render_template('register_page.html', form=form)
 
 
@@ -171,6 +190,7 @@ def login():
             login_user(user)
             return redirect(url_for('index'))
         flash('Неправильные данные от аккаунта')
+        pass
     return render_template('login_page.html')
 
 
@@ -258,3 +278,6 @@ def delete_comment(comment_id):
             db.session.rollback()
         except:
             return render_template('error_page.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

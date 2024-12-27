@@ -14,8 +14,7 @@
 </head>
 <body>
     <div id="title">
-        <div id="lethal">LETHAL</div>
-        <div id="home">HOME</div>
+        <div id="lethal">LETHAL HOME</div>
         {% if current_user.is_authenticated %}
             <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40">{{ current_user.username }}</div>
             <div class="popup-wrapper">
@@ -30,7 +29,7 @@
                 </div>
             </div>
         {% else %}
-            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40"><a class="links_in_text" href="{{ url_for('login') }}">Войти</a></div>
+            <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40"><a class="links_in_text" href="/log_index">Войти</a></div>
         {% endif %}
     </div>
     <hr id="hr_in_title">

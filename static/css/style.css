@@ -5,23 +5,27 @@
     font-weight: normal;
     font-style: normal;
 }
-
 * {
     font-family: "3270", monospace;
     font-optical-sizing: auto;
     font-style: normal;
     outline: none;
+    margin: 0;
+    padding: 0;
 }
 #title {
     background-color: black;
-    height: 65px;
     font-family: "Sixtyfour Convergence", sans-serif;
     font-size: 40px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0;
 	padding: 0;
+    width: 100vw;
+    top: 0;
+    position: relative;
 }
 #menu {
     display: grid;
@@ -169,8 +173,10 @@ body {
     font-size: 30px;
     margin-bottom: 15px;
     margin-top: 15px;
-
-
+}
+#username::after {
+    content: "Hello";
+    color: #fff;
 }
 #main_body {
     display: grid;
@@ -221,9 +227,7 @@ body {
 }
 #lethal {
     color: red;
-}
-#home {
-    color: red;
+    display: flex;
 }
 #title_in_head {
     position: relative;
@@ -606,9 +610,6 @@ hr {
 .comment_written_data {
     color: lightgray;
 }
-input {
-    color: #3C3C3C;
-}
 .popup {
     transition: 0.4s;
     font-size: 25px;
@@ -706,21 +707,10 @@ a {
 .input_form{
     color: white;
     font-size: 20px;
-    border-radius: 20px;
-    width: 300px;
-    height: 30px;
-    padding: 6px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #1B1B1B;
-    transition: 0.3s;
-    border: 2px solid #3C3C3C;
-}
-.input_form:hover, .input_form:active, .input_form:focus {
-    background-color: #1B1B1B;
-    box-shadow: 1px 2px 1px darkgray;
-}
+    background: none;
+    border: none;
 
+}
 #flash_message {
     color: red;
     font-size: 15px;
@@ -743,20 +733,16 @@ a {
 .register_form {
     border: none;
     width: 340px;
-    margin-top: 145px;
     justify-content: center;
-    border-radius: 30px;
-    padding: 15px 0 0 0;
-    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #forms {
-    margin-top: 16px;
-}
-@media (min-width: 349px) {
-    #forms {
-        margin-left: 15px;
-        margin-top: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -766,13 +752,8 @@ a {
     #flash_message-icon {
         height: 50px;
     }
-    .register_form {
-        box-shadow: 1px 5px 5px 1px red;
-        border: 2px solid red;
-        padding: 15px;
-        width: 350px;
-    }
 }
+
 .message {
     margin-left: 5px;
 }
@@ -794,13 +775,30 @@ footer {
 }
 
 #register_body {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+#register_main {
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    color: #fff;
+    font-size: 30px;
+}
+.introduce {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #register_title {
     font-size: 30px;
     color: white;
-    margin-left: 60px;
     display: flex;
 }
 #title-icon {
@@ -809,47 +807,45 @@ footer {
 #ask_title {
     color: white;
     font-size: 20px;
-    margin-left: 35px;
-    margin-top: 20px;
+    width: 100%;
+    text-align: center;
 }
-.inputs {
+.input_form {
     position: relative;
     display: flex;
     align-items: center;
-    width: 316px;
-    height: 70px;
+    width: 100%;
+    font-size: 25px;
 }
-.email-icon_register {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
+.introduce h3 {
+    white-space: nowrap;
 }
-.user-icon_register {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
+@media (max-width: 768px) {
+    #log-title {
+        white-space: wrap;
+    }
 }
-.lock-icon_register {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
+.form-group {
+    font-size: 25px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 30px;
 }
-.lock-icon-confirm_register {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
+.hidden {
+    display: none;
+}
+.form-group label {
+    width: auto;
+    white-space: nowrap;
 }
 .button_register {
-    border: 1px solid darkred;
-    border-radius: 30px;
-    width: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
-    margin-left: 25px;
     padding: 5px;
-    transition: 0.3s;
 }
 .btn-submit {
     background: none;
@@ -857,52 +853,6 @@ footer {
     font-size: 22px;
     text-transform: uppercase;
     color: darkred;
-    transition: 0.3s;
-}
-.button_register:hover {
-    border: 1px solid red;
-    box-shadow: 1px 5px 7px #670303;
-}
-.button_register:hover .btn-submit {
-    color: red;
-}
-.user-icon_login {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
-}
-.lock-icon_login {
-    z-index: 6;
-    position: absolute;
-    right: 10px;
-}
-.button_login {
-    border: 1px solid darkred;
-    border-radius: 30px;
-    width: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    margin-left: 90px;
-    padding: 5px;
-    transition: 0.3s;
-}
-
-.button_login:hover {
-    border: 1px solid red;
-    box-shadow: 1px 5px 7px #670303;
-}
-.button_login:hover .btn-submit_login {
-    color: red;
-}
-.btn-submit_login {
-    background: none;
-    border: none;
-    font-size: 25px;
-    text-transform: uppercase;
-    color: darkred;
-    transition: 0.3s;
 }
 .account {
     color: red;
@@ -989,11 +939,7 @@ footer {
 .popup-wrapper:hover .popup-box {
     display: block;
 }
-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px #1B1B1B inset !important;
-    -webkit-text-fill-color: white;
-    -webkit-animation-duration: 0s;
-}
+
 #big_error-description {
     display: flex;
 }

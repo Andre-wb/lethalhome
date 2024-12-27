@@ -14,8 +14,7 @@
 </head>
 <body>
     <div id="title">
-        <div id="lethal">LETHAL</div>
-        <div id="home">HOME</div>
+        <div id="lethal">LETHAL HOME</div>
         {% if current_user.is_authenticated %}
             <div class="account"><img src="{{ url_for('static', filename='img/profile-icon.webp') }}" height="40">{{ current_user.username }}</div>
             <div class="popup-wrapper">
