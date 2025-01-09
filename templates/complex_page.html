@@ -1,0 +1,85 @@
+{% extends 'main.html' %}
+
+{% block body %}
+<h1>Комплекс</h1>
+<hr>
+<br>
+<p>
+    Сбор лома - по сути самая важная часть игры. Благодаря собранным артефактам вы сдаете квоту и покупаете разные предметы в
+    <a class="links_in_text" href="/main/store">магазине.</a> Сами предметы находятся в комплексе, и он не всегда будет один и тот же.
+</p>
+<br>
+<h2>В игре есть 3 вида комплекса:</h2>
+<ul>
+    <li><a class="links_in_text" href="#facility">Завод</a></li>
+    <li><a class="links_in_text" href="#manor">Особняк</a></li>
+    <li><a class="links_in_text" href="#mineshaft">Шахта</a></li>
+</ul>
+
+<section id="facility">
+    <h2>Завод</h2>
+    <div class="lethal_company_gameplay_screenshot">
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/facility_screen_100835.webp" class="image_in_group">
+            <img src="/static/img/facility_screen_110848.webp" class="image_in_group">
+        </div>
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/facility_screen_111709.webp" class="image_in_group">
+            <img src="/static/img/facility_screen_112428.webp" class="image_in_group">
+        </div>
+    </div>
+    <br><br>
+    <p>
+        Данный вид комплекса встречается чаще на более легких и бесплатных планетах, а на платных и сложных довольно редко.
+        Исключением является <a class="links_in_text" href="/main/planets#titan">Titan,</a> там завод встречается почти всегда.
+        В основном такой вид комплекса состоит из коридоров и развилок, они могут быть освещены, а может свет там будет отсутствовать.
+        Также вы встретите на заводе склады и комнаты с техникой. Также завод - единственный вид комплекса, в котором можно найти
+        <a class="links_in_text" href="/main/scrap#aparatus">реактор.</a>
+    </p>
+    <br><br>
+</section>
+
+<section id="manor">
+    <br><br>
+    <h2>Особняк</h2>
+    <div class="lethal_company_gameplay_screenshot">
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/manor_screen_212734.webp" class="image_in_group">
+            <img src="/static/img/manor_screen_212828.webp" class="image_in_group">
+        </div>
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/manor_screen_213222.webp" class="image_in_group">
+            <img src="/static/img/manor_screen_214611.webp" class="image_in_group">
+        </div>
+    </div>
+    <br><br>
+    <p>
+        Особняк - вид комплекса, встречающийся чаще на платных планетах. Когда вы заходите в комплекс, вас приветствуют чистые полы и стены,
+        и деревянные лестница с перилами. Потолки, в отличие от других видов комплекса, довольно высокие. Вы можете встретить также зал с
+        книжными полками с подъемом на следующий этаж, или просто гостиные.
+    </p>
+    <br><br>
+</section>
+
+<section id="mineshaft">
+    <br><br>
+    <h2>Шахта</h2>
+    <div class="lethal_company_gameplay_screenshot">
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/Minecartquad1.webp" class="image_in_group">
+            <img src="/static/img/Mineshaftdown.webp" class="image_in_group">
+        </div>
+        <div class="inside_lethal_company_gameplay_screenshot">
+            <img src="/static/img/Mineshafthilla.webp" class="image_in_group">
+            <img src="/static/img/EntranceMineshaftUpper2.webp" class="image_in_group">
+        </div>
+    </div>
+    <br><br>
+    <p>
+        Самый разнообразный вид комплекса. При заходе вы видите лифт, на котором можно спуститься в сами шахты, или вызвать лифт при его отсутствии.
+        Внизу вы встретите каменные коридоры с дверями, с изредка расположенными в них камнями и вагонетками. А также вы найдете там вход в шахты.
+        Они уже не такие просторные как обычные коридоры, они очень запутанные и в них можно заблудиться. Однако именно в них находится большая часть предметов.
+    </p>
+    <br><br>
+</section>
+{% endblock %}

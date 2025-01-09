@@ -48,6 +48,16 @@
     transition: 0.5s;
     position: relative;
 }
+ul {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding-left: 0;  /* Убираем отступы */
+}
+
+ul li::before {
+    content: '>'; /* Указываем желаемый символ */
+    margin-right: 10px; /* Добавляем отступ между символом и текстом */
+}
+
 #top_line {
     transform: rotate(180deg);
     top: 0;
@@ -452,7 +462,7 @@ th {
 #screenshots {
     padding: 3px;
 }
-.inside_lethal_company_gameplay_screenshot {
+.lethal_company_gameplay_screenshot {
     padding: 30px;
 }
 .button_to_sell {
@@ -925,6 +935,9 @@ footer {
 @media (min-width: 640px) {
     #big_error {
         display: grid;
+        font-family: 'Courier New', Courier, monospace; /* Моноширинный шрифт */
+        white-space: pre; /* Сохраняет пробелы и переносы строк */
+        place-items: center;
     }
     .error_subtext {
         display: block;
