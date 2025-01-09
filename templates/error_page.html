@@ -5,9 +5,9 @@
     <title>error</title>
     <link rel="icon" href="{{ url_for('static', filename='img/lethalhome-icon.webp') }}">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
     <div id="title">
-        <div id="lethal">LETHAL</div>
-        <div id="home">HOME</div>
+        <div id="lethal">LETHALHOME</div>
         {% if current_user.is_authenticated %}
             <div id="account"><img src="/static/img/profile-icon.webp" height="40">{{ current_user.username }}</div>
                     <div class="popup-wrapper">
@@ -26,22 +26,14 @@
         {% endif %}
     </div>
     <hr id="hr_in_title">
-</head>
 <body id="error_body">
     <div id="error">
         <div id="big_error">
-            <br>
-             &nbsp_____  &nbsp &nbsp _ &nbsp&nbsp&nbsp_  &nbsp&nbsp&nbsp_ &nbsp&nbsp_&nbsp&nbsp &nbsp  _ &nbsp ____   &nbsp&nbsp_&nbsp&nbsp__  &nbsp&nbsp&nbsp&nbsp_
-            <br>
-            / &nbsp&nbsp _ &nbsp &nbsp\ &nbsp	|&nbsp&nbsp|&nbsp | &nbsp| &nbsp|&nbsp |&nbsp | &nbsp| /&nbsp | &nbsp| |__   &nbsp &nbsp|&nbsp |/&nbsp /  &nbsp&nbsp&nbsp  / &nbsp\
-            <br>
-            | &nbsp&nbsp| &nbsp| &nbsp&nbsp&nbsp|	&nbsp| &nbsp| &nbsp| &nbsp| &nbsp| &nbsp|&nbsp | &nbsp|/&nbsp&nbsp | &nbsp|  &nbsp_ &nbsp\   &nbsp&nbsp| '&nbsp /   &nbsp&nbsp&nbsp&nbsp /&nbsp_&nbsp\
-            <br>
-            |&nbsp&nbsp |_| &nbsp&nbsp&nbsp|	&nbsp| &nbsp|_|_|_|&nbsp |&nbsp |  &nbsp&nbsp/| &nbsp|&nbsp | |_| &nbsp|  &nbsp| . &nbsp\   &nbsp&nbsp&nbsp&nbsp/&nbsp|_|&nbsp\
-            <br>
-             \_____/ &nbsp	|_______| &nbsp|_/ |_| &nbsp|___/   &nbsp&nbsp|_|\_\&nbsp&nbsp/_/ &nbsp  \_\
-            <br>
-            <br>
+             _____   _   _   _   _    __   _____    _  __      _
+            /  _  \ | | | | | | | |  /  | | |___   | |/ /     / \
+            | | | | | | | | | | | |_/_  | |  _  \  | ' /     / _ \
+            | |_| | | |_| |_| | |   / | | | |_| |  | . \    / |_| \
+            \_____/ |_________| |__/  |_| |_____/  |_|\_\  /_/   \_\
         </div>
         <div id="big-error-description">
             Что-то пошло не так...

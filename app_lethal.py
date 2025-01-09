@@ -96,6 +96,12 @@ def output_planets():
     return render_template('planet_page.html', comments=comments)
 
 
+@app.route('/main/complex')
+def complex():
+    comments = Comment.query.all()
+    return render_template('complex_page.html', comments=comments)
+
+
 @app.route('/main/weather')
 def output_weather():
     comments = Comment.query.all()
