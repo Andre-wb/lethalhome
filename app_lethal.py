@@ -9,6 +9,8 @@ from datetime import datetime
 import re
 from dotenv import load_dotenv
 import os
+load_dotenv()
+
 
 
 app = Flask(__name__)
