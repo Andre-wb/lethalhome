@@ -1,31 +1,38 @@
-# Lethal Company Informational Website
+# LethalHome — Информационный сайт по Lethal Company
 
-## About the Project
+## О проекте
 
-This website is an informational resource dedicated to the game **Lethal Company**. It contains multiple pages and sections that thoroughly cover all aspects of the game. The minimalist design of the site was created to align with the aesthetic of the game.
+Информационный веб-сайт посвящённый игре **Lethal Company**.
+Охватывает все аспекты игры: механики, существа, локации и многое другое.
+Дизайн выполнен в минималистичном стиле, вдохновлённом эстетикой самой игры.
 
-Users can:
-- Register and log into their accounts
-- Post, edit, and delete comments
+## Возможности
 
-The project is built using **Python Flask**, **JavaScript**, and **SQLite3**.
+- Регистрация и авторизация пользователей
+- Публикация, редактирование и удаление комментариев
+- Многостраничная структура с подробным контентом об игре
 
-## Key Features
+## Стек технологий
 
-- **User Registration and Authentication**: Users can create accounts and log in.
-- **Comment Management**: Ability to post, edit, and delete comments.
-- **Minimalist Design**: The design style reflects the aesthetics of the game.
+- **Python** — Flask, Flask-SQLAlchemy, Flask-Login
+- **SQLite3** — база данных
+- **JavaScript** — динамическое взаимодействие на клиенте
+- **HTML / CSS** — вёрстка и стили
 
-## Technologies
+## Установка
 
-The project is built using the following technologies:
-- **Python Flask, Flask-SQLALchemy, Flask-login** — backend framework
-- **SQLite3** — database
-- **JavaScript** — dynamic user interactions
-- **HTML/CSS** — page structure and styling
-
-## Installation and Setup
-
-1. Clone the repository:
-   ```bash
+1. Клонируйте репозиторий:
+```bash
    git clone https://github.com/Andre-wb/lethalhome.git
+   cd lethalhome
+```
+
+2. Установите зависимости:
+```bash
+   pip install -r requirements.txt
+```
+
+3. Запустите проект:
+```bash
+   python app_lethal.py
+ ```
